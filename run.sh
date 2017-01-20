@@ -82,11 +82,6 @@ http_port 3128
 # don't cache anything
 cache deny all
 
-# logging
-access_log /dev/null
-cache_store_log none
-cache_log /dev/null
-
 # Leave coredumps in the first cache dir
 coredump_dir /var/cache/squid
 
@@ -103,8 +98,9 @@ refresh_pattern .               0       20%     4320
 #
 cache_peer ${HTTP_PROXY_HOST} parent ${HTTP_PROXY_PORT} 0 no-query default name=upstream
 cache_peer_access upstream deny localnet-dst
-never_direct deny localnet
 never_direct allow all
 EOF
+
+chown -cR squid:squid /var/log/squid
 
 exec squid -f /etc/squid/squid.conf -N
