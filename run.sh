@@ -30,6 +30,8 @@ acl localnet src fe80::/10      # RFC 4291 link-local (directly plugged) machine
 ${ACL_LOCALNET}
 
 acl SSL_ports port 443
+acl SSL_ports port 1025-65535   # unregistered ports
+
 acl Safe_ports port 80          # http
 acl Safe_ports port 21          # ftp
 acl Safe_ports port 443         # https
