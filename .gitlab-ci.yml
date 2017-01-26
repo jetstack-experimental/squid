@@ -30,8 +30,8 @@ docker:image_tagged:
   - mkdir -p ~/.docker && echo "${DOCKER_AUTH_CONFIG}" > ~/.docker/config.json && chmod 600 ~/.docker/config.json
   - make image push IMAGE_TAGS="${CI_BUILD_REF_SLUG}-${CI_PIPELINE_ID} latest"
   only:
-  - master
-  except:
   - tags
+  except:
+  - master
   services:
   - docker:dind
