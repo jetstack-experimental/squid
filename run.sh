@@ -100,6 +100,7 @@ refresh_pattern .               0       20%     4320
 #
 cache_peer ${HTTP_PROXY_HOST} parent ${HTTP_PROXY_PORT} 0 no-query default name=upstream
 cache_peer_access upstream deny localnet-dst
+never_direct deny localnet-dst
 never_direct allow all
 EOF
 
