@@ -1,8 +1,9 @@
 IMAGE := jetstackexperimental/squid
+BUILD_TAG := build
 IMAGE_TAGS := canary
 
 image:
-	docker build -t $(IMAGE):$(IMAGE_TAG) .
+	docker build -t $(IMAGE):$(BUILD_TAG) .
 
 push: image
 	set -e; \
